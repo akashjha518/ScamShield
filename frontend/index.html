@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="ScamShield helps freelancers identify warning signs in suspicious job offers and payment requests."
+    >
+    <title>ScamShield — Freelance Scam Detector</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="#" aria-label="ScamShield home">
+            <span class="brand-icon" aria-hidden="true">S</span>
+            <span>ScamShield</span>
+        </a>
+        <span class="header-label">Freelance Safety Assistant</span>
+        <span class="local-badge">
+            <span class="status-dot"></span>
+            Local analysis
+        </span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">YOUR FREELANCE SAFETY NET</p>
+            <h1>Opportunity or <span>scam?</span></h1>
+            <p class="hero-description">
+                Analyze suspicious freelance offers, client messages, and
+                payment requests. Understand the warning signs before you act.
+            </p>
+        </section>
+
+        <section class="analyzer-card" aria-labelledby="analyzer-title">
+            <div class="section-heading">
+                <div>
+                    <p class="step-label">MESSAGE ANALYZER</p>
+                    <h2 id="analyzer-title">Check a freelance message</h2>
+                </div>
+                <span class="privacy-label">Your message stays local</span>
+            </div>
+
+            <form id="analysis-form">
+                <label for="message-input">Paste the offer or message</label>
+                <textarea
+                    id="message-input"
+                    name="message"
+                    rows="8"
+                    minlength="1"
+                    maxlength="10000"
+                    placeholder="Example: We are offering a remote freelance position. Please pay a registration fee before you can begin..."
+                    required
+                ></textarea>
+
+                <div class="input-meta">
+                    <span id="input-hint">Remove personal information before submitting.</span>
+                    <span id="character-count">0 / 10000</span>
+                </div>
+
+                <div class="form-actions">
+                    <button class="button button-primary" id="analyze-button" type="submit">
+                        <span id="button-label">Analyze message</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+                    <button class="button button-secondary" id="clear-button" type="button">
+                        Clear
+                    </button>
+                </div>
+                <p id="form-error" class="form-error" role="alert" hidden></p>
+            </form>
+
+            <div class="example-section">
+                <p class="example-label">TRY AN EXAMPLE</p>
+                <div class="example-buttons">
+                    <button type="button" class="example-button" data-example="fee">
+                        Upfront fee request
+                    </button>
+                    <button type="button" class="example-button" data-example="legitimate">
+                        Standard job offer
+                    </button>
+                    <button type="button" class="example-button" data-example="ambiguous">
+                        Vague opportunity
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="results-section" aria-labelledby="results-title" hidden>
+            <div class="results-heading">
+                <div>
+                    <p class="step-label">ANALYSIS REPORT</p>
+                    <h2 id="results-title">Your results</h2>
+                </div>
+                <span id="result-status" class="result-status">Analysis complete</span>
+            </div>
+
+            <div class="risk-card" id="risk-card">
+                <div>
+                    <p class="risk-caption">RULE-BASED RISK LEVEL</p>
+                    <h3 id="risk-level">LOW</h3>
+                    <p id="risk-summary"></p>
+                </div>
+                <div class="score-display">
+                    <span id="risk-score">0</span>
+                    <span class="score-out-of">/ 100</span>
+                    <span class="score-caption">Screening score</span>
+                </div>
+            </div>
+
+            <p class="score-disclaimer">
+                This score is not a probability of fraud. A low score does not
+                guarantee that an offer is safe.
+            </p>
+
+            <section class="result-panel" aria-labelledby="findings-title">
+                <div class="panel-heading">
+                    <h3 id="findings-title">Warning signs</h3>
+                    <span id="finding-count" class="count-badge">0</span>
+                </div>
+                <div id="findings-list" class="findings-list"></div>
+            </section>
+
+            <section class="result-panel" aria-labelledby="recommendations-title">
+                <div class="panel-heading">
+                    <h3 id="recommendations-title">Recommended next steps</h3>
+                </div>
+                <ul id="recommendations-list" class="recommendations-list"></ul>
+            </section>
+
+            <section class="result-panel" aria-labelledby="missing-title">
+                <div class="panel-heading">
+                    <h3 id="missing-title">Information to verify</h3>
+                </div>
+                <ul id="missing-list" class="plain-list"></ul>
+            </section>
+
+            <details class="result-panel limitations-panel">
+                <summary>Limitations and important context</summary>
+                <ul id="limitations-list" class="plain-list"></ul>
+            </details>
+        </section>
+
+        <section class="disclaimer-card">
+            <span class="disclaimer-icon" aria-hidden="true">i</span>
+            <div>
+                <h2>Stay cautious, not fearful</h2>
+                <p>
+                    ScamShield identifies patterns in text; it cannot verify a
+                    client's identity or prove that a message is fraudulent.
+                    Independently verify offers before sending money or
+                    sensitive information.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>ScamShield · Built to help freelancers make informed decisions.</p>
+        <p>Rule-based screening · Local API · No paid AI services required</p>
+    </footer>
+</body>
+</html>
